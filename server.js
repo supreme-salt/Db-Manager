@@ -23,8 +23,8 @@ sequelize
   });
 
 //Import Models
-sequelize
-  .import('./models/product.js');
+sequelize.import('./models/product.js')
+sequelize.import('./models/listing.js')
 
 //Sync Tables
 sequelize

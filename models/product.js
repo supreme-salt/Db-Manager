@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     season: {
       type: DataTypes.STRING
-      // values: ['SS', 'FW']
+      // ENUM values: ['SS', 'FW']
     },
     brand: {
       type: DataTypes.STRING,
