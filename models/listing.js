@@ -1,3 +1,8 @@
+//associations 
+//one listing to one product
+//one listing to one user
+//one listing to one color
+
 module.exports = function(sequelize, DataTypes) {
   let Listing = sequelize.define('Listing', {
     id: {
