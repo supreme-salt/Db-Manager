@@ -11,6 +11,8 @@ const app = express();
 //DB
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(process.env.DB_URL);
+
+//Test Connection
 sequelize
   .authenticate()
   .then(() => {
@@ -19,6 +21,17 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to DB: ', err);
   });
+
+//Import Models
+sequelize
+  .import('./models/product.js');
+
+//Sync Tables
+sequelize
+  .sync({force: true})
+  .then(() => { console.log('Tables Created Successfully') })
+  .catch((err) => console.log('Error Creating Tables: ', err) );
+
 
 //Middleware
 app.use(morgan('dev'));
