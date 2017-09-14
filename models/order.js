@@ -3,7 +3,7 @@
 //one order has one listing
 
 module.exports = function(sequelize, DataTypes) {
-  let Order = sequelize('Order', {
+  let Order = sequelize.define('Order', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,

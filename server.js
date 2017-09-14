@@ -28,6 +28,8 @@ sequelize.import('./models/listing.js')
 sequelize.import('./models/offer.js')
 sequelize.import('./models/user.js')
 sequelize.import('./models/order.js')
+sequelize.import('./models/payment.js')
+sequelize.import('./models/color.js')
 
 //Sync Tables
 sequelize
