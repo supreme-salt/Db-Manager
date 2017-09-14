@@ -27,6 +27,7 @@ sequelize.import('./models/product.js')
 sequelize.import('./models/listing.js')
 sequelize.import('./models/offer.js')
 sequelize.import('./models/user.js')
+sequelize.import('./models/order.js')
 
 //Sync Tables
 sequelize

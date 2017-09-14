@@ -1,5 +1,6 @@
 //associations
 //one payment to one user
+//one user has many offers
 
 module.exports = function(sequelize, DataTypes) {
   let User = sequelize.define('User', {
