@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
       // ENUM values: ['Jackets', 'Shirts', 'Tops/Sweaters', 'Sweatshirts', 'Pants', 'Hats', 'Bags', 'Accessories', 'Shoes', 'Skate'],
       allowNull: false
     },
-    year:{
+    year: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
@@ -27,6 +27,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     }
-  })
+  });
   return Product;
 };

@@ -22,6 +22,6 @@ module.exports = function(sequelize, DataTypes) {
     phone: {
       type: DataTypes.INTEGER
     }
-  })
-  return User
+  });
+  return User;
 };

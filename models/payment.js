@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     streetAddress: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     city: {
       type: DataTypes.STRING,
@@ -33,7 +33,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     }
-
-  })
-  return Payment
+  });
+  return Payment;
 };

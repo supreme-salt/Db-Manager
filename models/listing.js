@@ -1,4 +1,4 @@
-//associations 
+//associations
 //one listing to one product
 //one listing to one user
 //one listing to one color
@@ -28,6 +28,6 @@ module.exports = function(sequelize, DataTypes) {
     flaws: {
       type: DataTypes.STRING
     }
-  })
-  return Listing
+  });
+  return Listing;
 };

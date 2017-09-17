@@ -5,7 +5,6 @@ const dotenv = require('dotenv').config();
 const port = 3000 || process.env.PORT;
 const path = require('path');
 
-
 const app = express();
 
 //DB
@@ -23,20 +22,21 @@ sequelize
   });
 
 //Import Models
-sequelize.import('./models/product.js')
-sequelize.import('./models/listing.js')
-sequelize.import('./models/offer.js')
-sequelize.import('./models/user.js')
-sequelize.import('./models/order.js')
-sequelize.import('./models/payment.js')
-sequelize.import('./models/color.js')
+sequelize.import('./models/product.js');
+sequelize.import('./models/listing.js');
+sequelize.import('./models/offer.js');
+sequelize.import('./models/user.js');
+sequelize.import('./models/order.js');
+sequelize.import('./models/payment.js');
+sequelize.import('./models/color.js');
 
 //Sync Tables
 sequelize
-  .sync({force: true})
-  .then(() => { console.log('Tables Created Successfully') })
-  .catch((err) => console.log('Error Creating Tables: ', err) );
-
+  .sync({ force: true })
+  .then(() => {
+    console.log('Tables Created Successfully');
+  })
+  .catch(err => console.log('Error Creating Tables: ', err));
 
 //Middleware
 app.use(morgan('dev'));
@@ -44,7 +44,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //port connect
-app.listen(port, (err) => {
+app.listen(port, err => {
   if (err) {
     conosle.error('Unable to connect to Port: ', err);
   } else {

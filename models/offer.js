@@ -16,6 +16,6 @@ module.exports = function(sequelize, DataTypes) {
     dateCreated: {
       type: DataTypes.DATE
     }
-  })
-  return Offer
+  });
+  return Offer;
 };
