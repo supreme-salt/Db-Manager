@@ -1,9 +1,9 @@
-//associations
-//one offer to one product
-//one offer to one user
+// associations
+// one offer to one product
+// one offer to one user
 
 module.exports = function(sequelize, DataTypes) {
-  let Offer = sequelize.define('Offer', {
+  const Offer = sequelize.define('Offer', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,

@@ -1,8 +1,8 @@
 // Associations
-//one color to one listing
+// one color to one listing
 
 module.exports = function(sequelize, DataTypes) {
-  let Color = sequelize.define('Color', {
+  const Color = sequelize.define('Color', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,

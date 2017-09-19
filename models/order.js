@@ -1,9 +1,9 @@
-//Associations
+// Associations
 // one order has one payment
-//one order has one listing
+// one order has one listing
 
 module.exports = function(sequelize, DataTypes) {
-  let Order = sequelize.define('Order', {
+  const Order = sequelize.define('Order', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,

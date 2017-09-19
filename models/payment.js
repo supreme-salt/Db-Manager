@@ -1,8 +1,8 @@
 // Associations
-//one payment to one user
+// one payment to one user
 
 module.exports = function(sequelize, DataTypes) {
-  let Payment = sequelize.define('Payment', {
+  const Payment = sequelize.define('Payment', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,

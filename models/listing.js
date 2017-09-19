@@ -1,10 +1,10 @@
-//associations
-//one listing to one product
-//one listing to one user
-//one listing to one color
+// associations
+// one listing to one product
+// one listing to one user
+// one listing to one color
 
 module.exports = function(sequelize, DataTypes) {
-  let Listing = sequelize.define('Listing', {
+  const Listing = sequelize.define('Listing', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     status: {
       type: DataTypes.STRING,
-      //Enum values: ['created', 'ordered', 'shipped']
+      // Enum values: ['created', 'ordered', 'shipped']
       allowNull: false
     },
     price: {
