@@ -1,44 +1,57 @@
-module.exports = function(sequelize, DataTypes) {
-  const Product = sequelize.define('Product', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    category: {
-      type: DataTypes.ENUM,
-      values: [
-        'Jackets',
-        'Shirts',
-        'Tops/Sweaters',
-        'Sweatshirts',
-        'Pants',
-        'Hats',
-        'Bags',
-        'Accessories',
-        'Shoes',
-        'Skate'
-      ],
-      allowNull: false
-    },
-    year: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    season: {
-      type: DataTypes.ENUM,
-      values: ['SS', 'FW'],
-      allowNull: false
-    },
-    brand: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  });
-  return Product;
-};
+const Sequelize = require('sequelize');
+const db = require('../config');
+
+const Product = db.define('Product', {
+  id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true
+  },
+  category: {
+    type: Sequelize.ENUM,
+    values: [
+      'Jackets',
+      'Shirts',
+      'Tops/Sweaters',
+      'Sweatshirts',
+      'Pants',
+      'Hats',
+      'Bags',
+      'Accessories',
+      'Shoes',
+      'Skate'
+    ],
+    allowNull: false
+  },
+  year: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  season: {
+    type: Sequelize.ENUM,
+    values: ['SS', 'FW'],
+    allowNull: false
+  },
+  brand: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  description: {
+    type: Sequelize.STRING,
+    allowNull: false
+  }
+});
+
+Product.sync({ force: true })
+  .then(() => {
+    console.log('Products Tables Created Successfully');
+  })
+  .catch(err => console.log('Error Creating Products Tables: ', err));
+
+module.exports = Product;
