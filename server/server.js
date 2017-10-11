@@ -7,13 +7,17 @@ const path = require('path');
 const port = 3000 || process.env.PORT;
 const app = express();
 
+const productsRouter = require('./routes/productsRouter');
+
 // DB
 const sequelize = require('../db/config');
 
 // Middleware
-app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app
+  .use(morgan('dev'))
+  .use(bodyParser.urlencoded({ extended: false }))
+  .use(bodyParser.json())
+  .use('/api', productsRouter);
 
 // port connect
 app.listen(port, err => {
