@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint **/*.{js,jsx} --quiet",
     "build": "webpack",
@@ -31,7 +31,9 @@
     "pg-hstore": "^2.3.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "sequelize": "^4.8.0"
+    "react-router-dom": "^4.2.2",
+    "sequelize": "^4.8.0",
+    "webpack": "^3.6.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

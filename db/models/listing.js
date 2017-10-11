@@ -12,8 +12,8 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
     status: {
-      type: DataTypes.STRING,
-      // Enum values: ['created', 'ordered', 'shipped']
+      type: DataTypes.ENUM,
+      values: ['created', 'ordered', 'shipped'],
       allowNull: false
     },
     price: {

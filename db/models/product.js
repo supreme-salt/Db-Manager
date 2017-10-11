@@ -7,8 +7,19 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
     category: {
-      type: DataTypes.STRING,
-      // ENUM values: ['Jackets', 'Shirts', 'Tops/Sweaters', 'Sweatshirts', 'Pants', 'Hats', 'Bags', 'Accessories', 'Shoes', 'Skate'],
+      type: DataTypes.ENUM,
+      values: [
+        'Jackets',
+        'Shirts',
+        'Tops/Sweaters',
+        'Sweatshirts',
+        'Pants',
+        'Hats',
+        'Bags',
+        'Accessories',
+        'Shoes',
+        'Skate'
+      ],
       allowNull: false
     },
     year: {
@@ -16,8 +27,9 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     season: {
-      type: DataTypes.STRING
-      // ENUM values: ['SS', 'FW']
+      type: DataTypes.ENUM,
+      values: ['SS', 'FW'],
+      allowNull: false
     },
     brand: {
       type: DataTypes.STRING,
