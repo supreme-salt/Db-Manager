@@ -14,10 +14,15 @@ const sequelize = require('../db/config');
 
 // Middleware
 app
+  .use(express.static('js'))
   .use(morgan('dev'))
   .use(bodyParser.urlencoded({ extended: false }))
   .use(bodyParser.json())
   .use('/api', productsRouter);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'index.html'));
+});
 
 // port connect
 app.listen(port, err => {

@@ -10,8 +10,8 @@ const Product = db.define('Product', {
   },
   name: {
     type: Sequelize.STRING,
-    allowNull: false,
-    unique: true
+    allowNull: false
+    // unique: true
   },
   category: {
     type: Sequelize.ENUM,

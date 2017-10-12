@@ -1,10 +1,13 @@
 const Product = require('../../db/models/product');
 
+const categoryValues = Product.rawAttributes.category.values;
+const seasonValues = Product.rawAttributes.season.values;
 module.exports = {
   getAllProducts: (req, res) => {
     Product.findAll()
       .then(products => {
-        res.send(products);
+        const response = [products, { categories: categoryValues }, { seasons: seasonValues }];
+        res.send(response);
       })
       .catch(err => res.send(err));
   },
