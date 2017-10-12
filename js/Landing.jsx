@@ -1,31 +1,15 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Landing extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: []
-    };
-  }
-  componentDidMount() {
-    axios
-      .get('http://localhost:3000/api/products')
-      .then(results => {
-        this.setState({ products: results.data });
-      })
-      .catch(err => console.log(err)); //eslint-disable-line
-  }
+const Landing = props => (
+  <div>
+    <h1>Salt DB Manager</h1>
+    <input type="text" placeholder="Search Item" />
+    <div>{props.products.map(item => <h3 key={item.id}>{item.name}</h3>)}</div>
+  </div>
+);
 
-  render() {
-    return (
-      <div>
-        <h1>Salt DB Manager</h1>
-        <input type="text" placeholder="Search Item" />
-        <div>{this.state.products.map(item => <h3>{item.name}</h3>)}</div>
-      </div>
-    );
-  }
-}
+Landing.propTypes = { products: PropTypes.arrayOf(PropTypes.object) };
+Landing.defaultProps = { products: [] };
 
 export default Landing;
