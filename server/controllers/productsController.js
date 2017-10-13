@@ -23,7 +23,7 @@ module.exports = {
       .then(product => {
         res.send(product);
       })
-      .catch(err => res.send(err));
+      .catch(err => res.status(404).send(err));
   },
   updateProduct: (req, res) => {
     Product.update(req.body, { where: { id: req.body.id } })

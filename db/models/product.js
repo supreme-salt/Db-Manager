@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../config');
+const Picture = require('./picture');
 
 const Product = db.define('Product', {
   id: {
@@ -47,6 +48,8 @@ const Product = db.define('Product', {
     allowNull: false
   }
 });
+
+Product.hasMany(Picture, { foreignKey: 'Product_pictureID' });
 
 Product.sync({ force: true })
   .then(() => {

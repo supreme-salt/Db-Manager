@@ -8,6 +8,7 @@ const port = 3000 || process.env.PORT;
 const app = express();
 
 const productsRouter = require('./routes/productsRouter');
+const picturesRouter = require('./routes/picturesRouter');
 
 // DB
 const sequelize = require('../db/config');
@@ -18,7 +19,8 @@ app
   .use(morgan('dev'))
   .use(bodyParser.urlencoded({ extended: false }))
   .use(bodyParser.json())
-  .use('/api', productsRouter);
+  .use('/api', productsRouter)
+  .use('/api', picturesRouter);
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'index.html'));
