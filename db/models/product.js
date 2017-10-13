@@ -1,8 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../config');
-const Picture = require('./picture');
 
-const Product = db.define('Product', {
+const Product = db.define('product', {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -48,13 +47,5 @@ const Product = db.define('Product', {
     allowNull: false
   }
 });
-
-Product.hasMany(Picture, { foreignKey: 'Product_pictureID' });
-
-Product.sync({ force: true })
-  .then(() => {
-    console.log('Products Tables Created Successfully');
-  })
-  .catch(err => console.log('Error Creating Products Tables: ', err));
 
 module.exports = Product;

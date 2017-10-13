@@ -1,8 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../config');
-const Product = require('./product');
 
-const Picture = db.define('Picture', {
+const Picture = db.define('picture', {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -28,10 +27,5 @@ const Picture = db.define('Picture', {
     ]
   }
 });
-// Picture.belongsTo(Product);
-
-Picture.sync({ force: true })
-  .then(() => console.log('Picture Table Created Successfully'))
-  .catch(err => console.log('Error Creating Picture Table', err));
 
 module.exports = Picture;

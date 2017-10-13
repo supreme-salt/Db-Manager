@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
 const path = require('path');
+const db = require('../db/config');
 
 const port = 3000 || process.env.PORT;
 const app = express();
@@ -32,5 +33,9 @@ app.listen(port, err => {
     console.error('Unable to connect to Port: ', err);
   } else {
     console.log('Connected to server at port: ', port);
+    db
+      .sync({ force: true })
+      .then(() => console.log('All Tables Created Successfully'))
+      .catch(error => console.log('Error Creating All Tables', error));
   }
 });
