@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactFilestack from 'filestack-react';
+import config from '../config';
 
 const options = {
   accept: 'image/*',
@@ -11,7 +12,7 @@ const options = {
 
 const Picker = () => (
   <ReactFilestack
-    apikey={process.env.FILESTACK_KEY}
+    apikey={config.FILESTACK_KEY}
     buttonText="Choose Image"
     buttonClass="picker"
     options={options}

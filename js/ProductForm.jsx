@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import Picker from './Filestack';
 
 class ProductForm extends Component {
   constructor(props) {
@@ -53,6 +54,7 @@ class ProductForm extends Component {
         <button type="submit" onClick={this.handleSubmit}>
           Add Product
         </button>
+        <Picker />
       </div>
     );
   }
