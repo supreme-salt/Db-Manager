@@ -5,6 +5,7 @@ import config from '../config';
 const options = {
   accept: 'image/*',
   maxFiles: 1,
+  fromSources: ['local_file_system'],
   storeTo: {
     location: 's3'
   }
