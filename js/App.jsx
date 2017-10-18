@@ -44,8 +44,6 @@ class App extends Component {
 
   addToState(values) {
     const newState = Object.assign(this.state, values);
-    console.log(newState);
-
     this.setState(newState, err => {
       if (err) {
         console.log('error happened: ', err);

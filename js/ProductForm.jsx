@@ -13,11 +13,18 @@ class ProductForm extends Component {
       season: 'SS',
       brand: null,
       description: null,
-      view: 'Front'
+      view: 'Front',
+      images: []
     };
 
+    this.addImage = this.addImage.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  addImage(imageUrl) {
+    this.state.images.push({ view: this.state.view, url: imageUrl });
+    console.log(this.state);
   }
 
   handleChange({ target }) {
@@ -55,8 +62,10 @@ class ProductForm extends Component {
         <button type="submit" onClick={this.handleSubmit}>
           Add Product
         </button>
-        <select name="views">{this.props.views.map(view => <option value={view}>{view}</option>)}</select>
-        <Picker />
+        <select name="view" onChange={this.handleChange}>
+          {this.props.views.map(view => <option value={view}>{view}</option>)}
+        </select>
+        <Picker addImage={this.addImage} />
       </div>
     );
   }
