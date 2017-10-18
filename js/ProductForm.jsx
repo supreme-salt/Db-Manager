@@ -12,7 +12,8 @@ class ProductForm extends Component {
       year: null,
       season: 'SS',
       brand: null,
-      description: null
+      description: null,
+      view: 'Front'
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -54,6 +55,7 @@ class ProductForm extends Component {
         <button type="submit" onClick={this.handleSubmit}>
           Add Product
         </button>
+        <select name="views">{this.props.views.map(view => <option value={view}>{view}</option>)}</select>
         <Picker />
       </div>
     );
@@ -62,8 +64,9 @@ class ProductForm extends Component {
 
 ProductForm.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.string),
-  seasons: PropTypes.arrayOf(PropTypes.string)
+  seasons: PropTypes.arrayOf(PropTypes.string),
+  views: PropTypes.arrayOf(PropTypes.string)
 };
-ProductForm.defaultProps = { categories: [], seasons: [] };
+ProductForm.defaultProps = { categories: [], seasons: [], views: [] };
 
 export default ProductForm;

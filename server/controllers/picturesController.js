@@ -4,6 +4,9 @@ const Product = require('../../db/models/product');
 const viewValues = Picture.rawAttributes.view.values;
 
 module.exports = {
+  getViews: (req, res) => {
+    res.send(viewValues);
+  },
   getAllPictures: (req, res) => {
     Picture.findAll()
       .then(allPictures => res.status(200).send(allPictures))
