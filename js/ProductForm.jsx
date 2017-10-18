@@ -23,7 +23,7 @@ class ProductForm extends Component {
   }
 
   addImage(imageUrl) {
-    this.state.images.push({ view: this.state.view, url: imageUrl });
+    this.state.images.push({ url: imageUrl, view: this.state.view });
     console.log(this.state);
   }
 

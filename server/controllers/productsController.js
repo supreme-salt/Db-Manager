@@ -1,4 +1,5 @@
 const Product = require('../../db/models/product');
+const Picture = require('../../db/models/picture');
 
 const categoryValues = Product.rawAttributes.category.values;
 const seasonValues = Product.rawAttributes.season.values;
@@ -12,14 +13,21 @@ module.exports = {
       .catch(err => res.send(err));
   },
   addProduct: (req, res) => {
-    Product.create({
-      name: req.body.name,
-      category: req.body.category,
-      year: req.body.year,
-      season: req.body.season,
-      brand: req.body.brand,
-      description: req.body.description
-    })
+    console.log(req.body);
+    Product.create(
+      {
+        name: req.body.name,
+        category: req.body.category,
+        year: req.body.year,
+        season: req.body.season,
+        brand: req.body.brand,
+        description: req.body.description,
+        pictures: req.body.images
+      },
+      {
+        include: [Picture]
+      }
+    )
       .then(product => {
         res.send(product);
       })
