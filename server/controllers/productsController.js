@@ -5,7 +5,7 @@ const categoryValues = Product.rawAttributes.category.values;
 const seasonValues = Product.rawAttributes.season.values;
 module.exports = {
   getAllProducts: (req, res) => {
-    Product.findAll()
+    Product.findAll({ include: [Picture] })
       .then(allProducts => {
         const response = { products: allProducts, categories: categoryValues, seasons: seasonValues };
         res.send(response);
